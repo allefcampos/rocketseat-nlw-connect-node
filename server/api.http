@@ -1,3 +1,4 @@
+### Subscribe to event
 POST http://localhost:3333/subscription
 Content-Type: application/json
 
@@ -5,3 +6,6 @@ Content-Type: application/json
     "name": "allef campos",
     "email": "allef@gmail.com"
 }
+
+### Access invite link
+GET http://localhost:3333/invites/asewd
