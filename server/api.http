@@ -1,11 +1,24 @@
 ### Subscribe to event
-POST http://localhost:3333/subscription
+POST http://localhost:3333/subscriptions
 Content-Type: application/json
 
 {
-    "name": "allef campos",
-    "email": "allef@gmail.com"
+    "name": "allef",
+    "email": "ss@teste.com",
+    "referrer": "a0144243-6872-45d9-b000-718ef70b9a8a"
 }
 
 ### Access invite link
-GET http://localhost:3333/invites/asewd
+GET http://localhost:3333/invites/a0144243-6872-45d9-b000-718ef70b9a8a
+
+### Get subscriber invites clicks
+GET http://localhost:3333/subscribers/9928a5a3-fb3a-4f9c-8753-51f83a4ca1c5/ranking/clicks
+
+### Get subscriber invites count
+GET http://localhost:3333/subscribers/a0144243-6872-45d9-b000-718ef70b9a8a/ranking/count
+
+### Get subscriber ranking position
+GET http://localhost:3333/subscribers/a0144243-6872-45d9-b000-718ef70b9a8a/ranking/position
+
+### Get ranking
+GET http://localhost:3333/ranking
