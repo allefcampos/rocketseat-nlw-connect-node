@@ -14,14 +14,14 @@ export async function subscribeToEvent({
   email,
   invitedBySubscriberId,
 }: SubscribeToEventParams) {
-  //   const results = await db
-  //     .select()
-  //     .from(schema.subscriptions)
-  //     .where(eq(schema.subscriptions.email, email))
+  const results = await db
+    .select()
+    .from(schema.subscriptions)
+    .where(eq(schema.subscriptions.email, email))
 
-  //   if (results.length > 0) {
-  //     return { subscriberId: results[0].id }
-  //   }
+  if (results.length > 0) {
+    return { subscriberId: results[0].id }
+  }
 
   const [{ subscriberId }] = await db
     .insert(schema.subscriptions)
@@ -33,9 +33,9 @@ export async function subscribeToEvent({
       subscriberId: schema.subscriptions.id,
     })
 
-  //   if (invitedBySubscriberId) {
-  //     await redis.zincrby('referral:ranking', 1, invitedBySubscriberId)
-  //   }
+  if (invitedBySubscriberId) {
+    await redis.zincrby('referral:ranking', 1, invitedBySubscriberId)
+  }
 
   return { subscriberId }
 }
